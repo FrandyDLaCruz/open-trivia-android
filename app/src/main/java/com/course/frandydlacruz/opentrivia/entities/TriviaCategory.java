@@ -1,4 +1,4 @@
-package com.course.frandydlacruz.opentrivia;
+package com.course.frandydlacruz.opentrivia.entities;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

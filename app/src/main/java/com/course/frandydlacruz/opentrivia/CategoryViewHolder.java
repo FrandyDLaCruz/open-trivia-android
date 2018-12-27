@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import com.course.frandydlacruz.opentrivia.interfaces.ListItemClickListener;
+
 public class CategoryViewHolder extends RecyclerView.ViewHolder {
 
     private Button categoryItem;
@@ -14,7 +16,7 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
         categoryItem = itemView.findViewById(R.id.btn_category);
     }
 
-    public void bind(String categoryName, final int position, final ListItemClickListener listener) {
+    public void bind(String categoryName, final int categoryId, final ListItemClickListener listener) {
         categoryItem.setText(categoryName);
 //        itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -25,7 +27,7 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
         categoryItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onListItemClick(position);
+                listener.onListItemClick(categoryId);
             }
         });
     }

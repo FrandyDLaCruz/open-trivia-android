@@ -1,4 +1,4 @@
-package com.course.frandydlacruz.opentrivia;
+package com.course.frandydlacruz.opentrivia.entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;

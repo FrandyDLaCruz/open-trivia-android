@@ -1,4 +1,4 @@
-package com.course.frandydlacruz.opentrivia;
+package com.course.frandydlacruz.opentrivia.entities;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

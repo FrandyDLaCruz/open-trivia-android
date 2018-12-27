@@ -7,9 +7,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-import java.util.List;
+import com.course.frandydlacruz.opentrivia.entities.Category;
+import com.course.frandydlacruz.opentrivia.entities.Trivia;
+import com.course.frandydlacruz.opentrivia.interfaces.ListItemClickListener;
+import com.course.frandydlacruz.opentrivia.interfaces.RestClient;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         adapter = new MyAdapter(response.body(), new ListItemClickListener() {
                             @Override
                             public void onListItemClick(int clickedItemIndex) {
-                                showQuestion();
+                                showQuestion(clickedItemIndex);
                             }
                         });
                         rvTriviaCategory.setAdapter(adapter);
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void showQuestion() {
+    public void showQuestion(int category) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         RestClient service = retrofit.create(RestClient.class);
 
-        service.getTrivia(1, "boolean").enqueue(new Callback<Trivia>() {
+        service.getTrivia(1, "boolean", category).enqueue(new Callback<Trivia>() {
 
             @Override
             public void onResponse(Call<Trivia> call, Response<Trivia> response) {

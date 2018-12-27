@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.net.URISyntaxException;
+import com.course.frandydlacruz.opentrivia.entities.Result;
 
 public class Question extends AppCompatActivity {
 

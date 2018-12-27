@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.course.frandydlacruz.opentrivia.entities.Category;
+import com.course.frandydlacruz.opentrivia.interfaces.ListItemClickListener;
+
 //import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
@@ -37,7 +40,7 @@ public class MyAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        holder.bind(categories.getTriviaCategories().get(position).getName(), position, listItemClickListener);
+        holder.bind(categories.getTriviaCategories().get(position).getName(), categories.getTriviaCategories().get(position).getId(), listItemClickListener);
     }
 
     @Override
