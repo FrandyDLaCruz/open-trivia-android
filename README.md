@@ -4,7 +4,7 @@ Tivia game made as a homework of the Android Course at UNAPEC.
 
 ## Requirements
 * Use recyclerView
-* Make an call to an public API and show the data
+* Make a call to a public API and show the data
 
 ## Screenshots
 
