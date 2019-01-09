@@ -13,5 +13,5 @@ public interface RestClient {
     Call<Category> getCategories();
 
     @GET("api.php")
-    Call<Trivia> getTrivia(@Query("amount") int amount, @Query("type") String type, @Query("category") int category);
+    Call<Trivia> getTrivia(@Query("amount") int amount, @Query("type") String type, @Query("category") int category, @Query("encode") String encode);
 }

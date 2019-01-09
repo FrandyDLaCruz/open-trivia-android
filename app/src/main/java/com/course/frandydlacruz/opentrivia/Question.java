@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import com.course.frandydlacruz.opentrivia.entities.Result;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
 public class Question extends AppCompatActivity {
 
     private TextView tvCategory;
@@ -33,10 +37,19 @@ public class Question extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent.hasExtra("RESULT")) {
             final Result result = intent.getParcelableExtra("RESULT");
+            String question = null;
+            String category = null;
 
-            tvCategory.setText(result.getCategory());
+            try {
+                question = URLDecoder.decode(result.getQuestion(), "UTF-8");
+                category = URLDecoder.decode(result.getCategory(), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+            tvCategory.setText(category);
             tvDifficulty.setText(result.getDifficulty());
-            tvQuestion.setText(result.getQuestion());
+            tvQuestion.setText(question);
             tvAnswer.setText(result.getCorrectAnswer());
 
             btnTrue.setOnClickListener(new View.OnClickListener() {

@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         RestClient service = retrofit.create(RestClient.class);
 
-        service.getTrivia(1, "boolean", category).enqueue(new Callback<Trivia>() {
+        service.getTrivia(1, "boolean", category, "url3986").enqueue(new Callback<Trivia>() {
 
             @Override
             public void onResponse(Call<Trivia> call, Response<Trivia> response) {
