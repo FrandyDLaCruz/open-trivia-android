@@ -1,12 +1,15 @@
-package com.course.frandydlacruz.opentrivia;
+package com.course.frandydlacruz.opentrivia.views;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
 import android.widget.Toast;
 
+import com.course.frandydlacruz.opentrivia.MyAdapter;
+import com.course.frandydlacruz.opentrivia.R;
 import com.course.frandydlacruz.opentrivia.entities.Category;
 import com.course.frandydlacruz.opentrivia.entities.Trivia;
 import com.course.frandydlacruz.opentrivia.interfaces.ListItemClickListener;
@@ -24,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvTriviaCategory;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
+    public static int lifes = 3;
+    public static int Strikes = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
         rvTriviaCategory.setLayoutManager(layoutManager);
 
         showCategories();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        menu.findItem(R.id.lifes).setTitle(getResources().getString(R.string.main_menu_title_life) + lifes);
+        return true;
     }
 
     private void showCategories(){
@@ -104,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Trivia> call, Throwable t) {
-
+                Toast.makeText(MainActivity.this, "The API is down", Toast.LENGTH_SHORT).show();
             }
         });
     }
