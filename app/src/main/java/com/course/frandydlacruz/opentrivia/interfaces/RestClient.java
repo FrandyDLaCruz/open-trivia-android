@@ -1,7 +1,7 @@
 package com.course.frandydlacruz.opentrivia.interfaces;
 
-import com.course.frandydlacruz.opentrivia.entities.Category;
-import com.course.frandydlacruz.opentrivia.entities.Trivia;
+import com.course.frandydlacruz.opentrivia.models.Category;
+import com.course.frandydlacruz.opentrivia.models.Trivia;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

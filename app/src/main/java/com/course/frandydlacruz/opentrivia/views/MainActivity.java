@@ -8,10 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.widget.Toast;
 
-import com.course.frandydlacruz.opentrivia.MyAdapter;
+import com.course.frandydlacruz.opentrivia.Adapters.MyAdapter;
 import com.course.frandydlacruz.opentrivia.R;
-import com.course.frandydlacruz.opentrivia.entities.Category;
-import com.course.frandydlacruz.opentrivia.entities.Trivia;
+import com.course.frandydlacruz.opentrivia.TriviaApplication;
+import com.course.frandydlacruz.opentrivia.models.Category;
+import com.course.frandydlacruz.opentrivia.models.Trivia;
 import com.course.frandydlacruz.opentrivia.interfaces.ListItemClickListener;
 import com.course.frandydlacruz.opentrivia.interfaces.RestClient;
 
@@ -27,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvTriviaCategory;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
-    public static int lifes = 3;
-    public static int Strikes = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        menu.findItem(R.id.lifes).setTitle(getResources().getString(R.string.main_menu_title_life) + lifes);
+        menu.findItem(R.id.lifes).setTitle(getResources().getString(R.string.main_menu_title_life) + TriviaApplication.lifes);
         return true;
     }
 

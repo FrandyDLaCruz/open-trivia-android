@@ -1,4 +1,4 @@
-package com.course.frandydlacruz.opentrivia;
+package com.course.frandydlacruz.opentrivia.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.course.frandydlacruz.opentrivia.entities.Category;
+import com.course.frandydlacruz.opentrivia.ViewHolders.CategoryViewHolder;
+import com.course.frandydlacruz.opentrivia.R;
+import com.course.frandydlacruz.opentrivia.models.Category;
 import com.course.frandydlacruz.opentrivia.interfaces.ListItemClickListener;
 
 //import java.util.List;
