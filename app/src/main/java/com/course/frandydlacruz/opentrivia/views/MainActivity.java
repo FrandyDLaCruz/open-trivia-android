@@ -9,12 +9,15 @@ import android.view.Menu;
 import android.widget.Toast;
 
 import com.course.frandydlacruz.opentrivia.Adapters.MyAdapter;
+import com.course.frandydlacruz.opentrivia.JobSchedule;
+import com.course.frandydlacruz.opentrivia.JobScheduleCreator;
 import com.course.frandydlacruz.opentrivia.R;
 import com.course.frandydlacruz.opentrivia.TriviaApplication;
 import com.course.frandydlacruz.opentrivia.models.Category;
 import com.course.frandydlacruz.opentrivia.models.Trivia;
 import com.course.frandydlacruz.opentrivia.interfaces.ListItemClickListener;
 import com.course.frandydlacruz.opentrivia.interfaces.RestClient;
+import com.evernote.android.job.JobManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
         rvTriviaCategory.setLayoutManager(layoutManager);
 
         showCategories();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JobManager.create(this).addJobCreator(new JobScheduleCreator());
+        JobSchedule.schedulePeriodic();
     }
 
     @Override

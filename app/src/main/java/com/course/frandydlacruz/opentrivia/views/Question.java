@@ -10,12 +10,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.course.frandydlacruz.opentrivia.JobSchedule;
+import com.course.frandydlacruz.opentrivia.JobScheduleCreator;
 import com.course.frandydlacruz.opentrivia.R;
 import com.course.frandydlacruz.opentrivia.TriviaApplication;
 import com.course.frandydlacruz.opentrivia.interfaces.OnSaveListener;
 import com.course.frandydlacruz.opentrivia.interfaces.ScoreDao;
 import com.course.frandydlacruz.opentrivia.models.Result;
 import com.course.frandydlacruz.opentrivia.models.UserScore;
+import com.evernote.android.job.JobManager;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -80,6 +83,13 @@ public class Question extends AppCompatActivity implements OnSaveListener {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        JobManager.create(this).addJobCreator(new JobScheduleCreator());
+        JobSchedule.schedulePeriodic();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         menu.findItem(R.id.lifes).setTitle(getResources().getString(R.string.main_menu_title_life) + TriviaApplication.lifes);
@@ -126,7 +136,7 @@ public class Question extends AppCompatActivity implements OnSaveListener {
         };
 
         TriviaApplication.strikes = 0;
-        TriviaApplication.lifes = 1;
+        TriviaApplication.lifes = 3;
     }
 
     @Override
