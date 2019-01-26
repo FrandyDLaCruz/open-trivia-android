@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.course.frandydlacruz.opentrivia.R;
 import com.course.frandydlacruz.opentrivia.TriviaApplication;
+import com.course.frandydlacruz.opentrivia.interfaces.OnSaveListener;
 import com.course.frandydlacruz.opentrivia.interfaces.ScoreDao;
 import com.course.frandydlacruz.opentrivia.models.Result;
 import com.course.frandydlacruz.opentrivia.models.UserScore;
@@ -19,7 +20,7 @@ import com.course.frandydlacruz.opentrivia.models.UserScore;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
-public class Question extends AppCompatActivity {
+public class Question extends AppCompatActivity implements OnSaveListener {
 
     private TextView tvCategory;
     private TextView tvDifficulty;
@@ -27,6 +28,8 @@ public class Question extends AppCompatActivity {
     private TextView tvAnswer;
     private Button btnTrue;
     private Button btnFalse;
+    public UserScore userScore = new UserScore();
+    public AsyncTask<UserScore, Void, Void> task;
 
     //ToDo  Remember each 2 min. that the game is there to play
 
@@ -107,14 +110,13 @@ public class Question extends AppCompatActivity {
 
     public void gameOver() {
         Toast.makeText(Question.this, "Game Over, you answered " + TriviaApplication.strikes + " correct answers", Toast.LENGTH_LONG).show();
-        //ToDo  Save the user name Using SharedPreference
-        //ToDo  Save the score of the user Using ROOM
 
-        UserScore userScore = new UserScore();
-        userScore.name = "Frandy De La Cruz";
+        DialogUser dialogUser = new DialogUser();
+        dialogUser.show(getSupportFragmentManager(), "Save Data");
+
         userScore.score = TriviaApplication.strikes;
 
-        AsyncTask<UserScore, Void, Void> task = new AsyncTask<UserScore, Void, Void>() {
+        task = new AsyncTask<UserScore, Void, Void>() {
             @Override
             protected Void doInBackground(UserScore... userScores) {
                 ScoreDao userScoreDao = ((TriviaApplication) getApplicationContext()).getTriviaDB().UserScoreDao();
@@ -123,10 +125,12 @@ public class Question extends AppCompatActivity {
             }
         };
 
-        task.execute(userScore);
-
         TriviaApplication.strikes = 0;
-        TriviaApplication.lifes = 3;
-        startActivity(new Intent(Question.this, LobbyActivity.class));
+        TriviaApplication.lifes = 1;
+    }
+
+    @Override
+    public void sendInput(String userName) {
+        userScore.name = userName;
     }
 }

@@ -8,4 +8,5 @@
     <string name="main_menu_title_life">Lifes: </string>
     <string name="lobby_activity_button_new_game">New Game</string>
     <string name="lobby_activity_button_score">Score</string>
+    <string name="dialog_user_button_save">Save</string>
 </resources>

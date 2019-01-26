@@ -7,7 +7,7 @@ import com.course.frandydlacruz.opentrivia.models.TriviaDatabase;
 
 public class TriviaApplication extends Application {
     public TriviaDatabase db;
-    public static int lifes = 3;
+    public static int lifes = 1;
     public static int strikes = 0;
 
     @Override

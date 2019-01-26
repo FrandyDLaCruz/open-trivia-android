@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="16dp">
 
-    <!--ToDo change for textview -->
-
-    <android.support.design.button.MaterialButton
-        android:id="@+id/btn_category"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="250dp"
+    <TextView
+        android:id="@+id/tvUser"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="Button"
-        android:textAppearance="@android:style/TextAppearance.Material.Button"
-        android:textColor="@android:color/white"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_vertical|start"
+        android:fontFamily="monospace"
+        android:textSize="20sp"
+        tools:text="Fulano" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvScore"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:fontFamily="monospace"
+        android:textSize="20sp"
+        tools:text="5" />
+
+</FrameLayout>

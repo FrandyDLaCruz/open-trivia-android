@@ -12,7 +12,7 @@ import java.util.List;
 @Dao
 public interface ScoreDao {
 
-    @Query("SELECT * FROM UserScore")
+    @Query("SELECT * FROM UserScore ORDER BY score DESC")
     List<UserScore> getAllUsersScore();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
