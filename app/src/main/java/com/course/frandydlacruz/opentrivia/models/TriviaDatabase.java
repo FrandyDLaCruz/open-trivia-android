@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
 
 import com.course.frandydlacruz.opentrivia.interfaces.ScoreDao;
 
-@Database(entities = UserScore.class, version = 3)
+@Database(entities = UserScore.class, version = 4)
 public abstract class TriviaDatabase extends RoomDatabase {
 
     public abstract ScoreDao UserScoreDao();

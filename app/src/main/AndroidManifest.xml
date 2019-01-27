@@ -29,7 +29,7 @@
         </activity>
         <activity android:name=".views.Question" />
 
-        <service android:name=".JobSchedule"
+        <service android:name=".Jobs.JobSchedule"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
     </application>

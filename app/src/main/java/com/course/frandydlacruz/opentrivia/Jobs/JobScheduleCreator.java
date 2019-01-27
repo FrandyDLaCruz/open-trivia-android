@@ -1,4 +1,4 @@
-package com.course.frandydlacruz.opentrivia;
+package com.course.frandydlacruz.opentrivia.Jobs;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

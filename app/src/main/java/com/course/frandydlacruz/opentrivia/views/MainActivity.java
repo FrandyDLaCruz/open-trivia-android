@@ -9,8 +9,8 @@ import android.view.Menu;
 import android.widget.Toast;
 
 import com.course.frandydlacruz.opentrivia.Adapters.MyAdapter;
-import com.course.frandydlacruz.opentrivia.JobSchedule;
-import com.course.frandydlacruz.opentrivia.JobScheduleCreator;
+import com.course.frandydlacruz.opentrivia.Jobs.JobSchedule;
+import com.course.frandydlacruz.opentrivia.Jobs.JobScheduleCreator;
 import com.course.frandydlacruz.opentrivia.R;
 import com.course.frandydlacruz.opentrivia.TriviaApplication;
 import com.course.frandydlacruz.opentrivia.models.Category;
