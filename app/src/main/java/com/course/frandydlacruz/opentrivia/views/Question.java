@@ -34,8 +34,6 @@ public class Question extends AppCompatActivity implements OnSaveListener {
     public UserScore userScore = new UserScore();
     public AsyncTask<UserScore, Void, Void> task;
 
-    //ToDo  Remember each 2 min. that the game is there to play
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
